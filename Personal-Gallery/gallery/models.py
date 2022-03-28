@@ -8,6 +8,12 @@ class Category(models.Model):
         return self.name
 
 
+class Location(models.Model):
+    area = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.area
+
+
 class Image(models.Model):
     description = models.CharField(max_length=300, blank=False)
-    
