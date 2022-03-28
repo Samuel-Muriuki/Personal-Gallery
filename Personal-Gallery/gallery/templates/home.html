@@ -14,13 +14,8 @@
 
 <body>
   <div class="container-fluid">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="{% url 'home' %}" class="navbar-brand">Gallery</a>
-        </div>
-      </div>
-    </nav>
+    {% include "navbar.html" %}
+    
     <div class="row m-5">
       <div class="col-sm-3 my-5">
         <h1>Personal Gallery 2</h1>
