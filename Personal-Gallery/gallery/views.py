@@ -4,8 +4,8 @@ from django.shortcuts import render
 def home_gallery(request):
     return render(request, 'home.html')
 
-def adding_photos(request, pk):
+def adding_photos(request):
     return render(request, 'gallery/adding_photos.html')
 
-def viewing_photos(request):
+def viewing_photos(request, pk):
     return render(request, 'gallery/viewing_photos.html')
