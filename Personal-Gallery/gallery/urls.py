@@ -4,7 +4,7 @@ from . import views
 
 # URL Configurations
 urlpatterns = [
-    path('', views.home_gallery, name = 'home_gallery'),
-    path('add_photo/<str:pk>/', views.adding_photos, name = 'adding_photos'),
-    path('view_photo', views.viewing_photos, name = 'viewing_photos')
+    path('home', views.home_gallery, name = 'home'),
+    path('add_photo/<str:pk>/', views.adding_photos, name = 'adding'),
+    path('view_photo', views.viewing_photos, name = 'viewing')
 ]

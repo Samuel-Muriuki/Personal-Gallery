@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def home_gallery(request):
-    return render(request, 'gallery/home_gallery.html')
+    return render(request, 'home.html')
 
 def adding_photos(request, pk):
     return render(request, 'gallery/adding_photos.html')
