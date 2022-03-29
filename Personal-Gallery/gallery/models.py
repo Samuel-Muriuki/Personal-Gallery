@@ -1,3 +1,5 @@
+from tkinter import CASCADE
+from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -16,4 +18,7 @@ class Location(models.Model):
 
 
 class Image(models.Model):
+    category = models.ForeignKey(Category, on_delete=CASCADE)
+    location = models.ForeignKey(Location, on_delete=CASCADE)
     description = models.CharField(max_length=300, blank=False)
+    image = models.CharField(max_length=500, null=False, blank=False)
