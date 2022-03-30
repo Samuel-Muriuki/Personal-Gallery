@@ -24,7 +24,9 @@
             src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
             alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Category: Tech</h5>
+            {% for category in categories %}
+              <h5 class="card-title">Category: {{category.name}}</h5>
+            {% endfor %}
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
               content.</p>
             <a href="{% url 'viewing' 3 %}" class="btn btn-primary">View Image</a>
