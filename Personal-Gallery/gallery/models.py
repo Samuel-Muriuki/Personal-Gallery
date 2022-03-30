@@ -29,3 +29,16 @@ class Image(models.Model):
 
     def __str__(self):
         return self.description
+
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def delete_image(cls,id):
+        image = cls.objects.filter(id = id)
+        image.delete()
+
+    @classmethod
+    def search_image(cls,search_term):
+        image = cls.objects.filter(category__category__icontains= search_term)
+        return image
