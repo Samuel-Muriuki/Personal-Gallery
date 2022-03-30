@@ -24,18 +24,26 @@
           </div>
           <ul class="list-group list-group-flush">
             {% for category in categories %}
-            <li class="list-group-item">{{ category.name }}</li>
+            <li class="list-group-item">
+              <a href="{% url 'home' %}?category={{ category.name }}">
+                {{ category.name }}
+              </a>
+            </li>
             {% endfor %}
           </ul>
         </div>
 
-        <div class="card" style="width: 18rem;">
+        <div class="card my-5" style="width: 18rem;">
           <div class="card-header">
             View By Location
           </div>
           <ul class="list-group list-group-flush">
             {% for location in locations %}
-            <li class="list-group-item">{{ location.area}}</li>
+            <li class="list-group-item">
+              <a href="{% url 'home' %}?location={{ location.area }}">
+                {{ location.area}}
+              </a>
+            </li>
             {% endfor %}
           </ul>
         </div>

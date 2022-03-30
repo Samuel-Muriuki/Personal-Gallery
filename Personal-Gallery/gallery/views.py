@@ -9,6 +9,15 @@ def home_gallery(request):
     images = Image.objects.all()
     locations = Location.objects.all()
     context = {'categories': categories, 'images': images, 'locations': locations}
+
+    category = request.GET.get('category')
+    if category == None:
+        images = Image.objects.all()
+    else:
+        images = Image.objects.filter(category__name=category)
+
+    
+
     return render(request, 'home.html', context)
 
 def searching_photos(request):
