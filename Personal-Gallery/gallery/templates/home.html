@@ -17,34 +17,35 @@
     {% include "navbar.html" %}
 
     <div class="row m-5">
-      <div class="col-sm-3 my-5">
-        {% for image in images %}
+      {% for image in images %}
+      <div class="col-sm-3 m-5">
+
         <h1>Personal Gallery 2</h1>
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap">
-          
+
           <div class="card-body">
-            {% for category in categories %}
-            <h5 class="card-title">Category: {{category.name}}</h5>
-            {% endfor %}
+            
+            <h5 class="card-title">Category: {{image.category.name}}</h5>
+            
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
               content.</p>
             <a href="{% url 'viewing' 1 %}" class="btn btn-primary">View Image</a>
           </div>
         </div>
-        {%empty%}
-          <h2>No image yet ....</h2>
-          {% endfor %}
+
       </div>
+      {%empty%}
+      <h2>No image yet ....</h2>
+      {% endfor %}
 
-     
 
-    {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %}
-    {% endblock %}
+      {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      {% bootstrap_javascript %}
+      {% endblock %}
 
-  </div>
+    </div>
 </body>
 
 </html>

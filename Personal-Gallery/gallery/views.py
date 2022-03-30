@@ -15,5 +15,5 @@ def adding_photos(request):
     return render(request, 'gallery/adding_photos.html')
 
 def viewing_photos(request, pk):
-    # photo = Image.objects.get(id=pk)
-    return render(request, 'gallery/viewing_photos.html')
+    image = Image.objects.get(id=pk)
+    return render(request, 'gallery/viewing_photos.html', {'image': image})
