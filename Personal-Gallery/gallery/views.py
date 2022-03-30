@@ -1,13 +1,14 @@
 from multiprocessing import context
 from unicodedata import category
 from django.shortcuts import render
-from .models import Category, Image
+from .models import Category, Image, Location
 
 # Create your views here.
 def home_gallery(request):
     categories = Category.objects.all()
     images = Image.objects.all()
-    context = {'categories': categories, 'images': images}
+    locations = Location.objects.all()
+    context = {'categories': categories, 'images': images, 'locations': locations}
     return render(request, 'home.html', context)
 
 def searching_photos(request):
