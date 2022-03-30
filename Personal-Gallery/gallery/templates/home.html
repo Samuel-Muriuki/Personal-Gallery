@@ -12,7 +12,7 @@
   <title>Personal Gallery</title>
 </head>
 
-<body class="my-2">
+<body class="my-2 bg-dark">
   <div class="container-fluid">
     {% include "navbar.html" %}
     <h1 class="text-center">Personal Gallery</h1>
@@ -23,14 +23,11 @@
             Gallery Categories
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <a href="{% url 'home' %}">All</a>
-            </li>
             {% for category in categories %}
             <li class="list-group-item">
-              <a href="{% url 'home' %}?category={{ category.name }}">
+              
                 {{ category.name }}
-              </a>
+              
             </li>
             {% endfor %}
           </ul>
@@ -60,10 +57,11 @@
           <div class="col-sm-3 m-5">
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap" id="{{image.id}}"
-                data-toggle="modal" data-target="#myImg{{image.id}}">
+                data-toggle="modal" data-target="#myImg{{image.id}}" style="height: 250px; width: 100%">
                 <div class="card-body">
 
                   <h3 class="card-title">Category: {{image.category.name}}</h3>
+                  <h3 class="card-title">Location: {{image.location.area}}</h3>
                   <h6 class="card-title">Image Description</h6>
                   <p class="card-text">{{image.description}}</p>
                  

@@ -6,12 +6,12 @@ from .models import Category, Image, Location
 # Create your views here.
 def home_gallery(request):
 
-    category = request.GET.get('category')
-    print('category:', category)
-    if category != None:
-        images = Image.objects.filter(category__name=category)
-    else:
-        images = Image.objects.all()
+    # category = request.GET.get('category')
+    # print('category:', category)
+    # if category != None:
+    #     images = Image.objects.filter(category__name=category)
+    # else:
+    #     images = Image.objects.all()
 
     location = request.GET.get('location')
     print('location:', location)
