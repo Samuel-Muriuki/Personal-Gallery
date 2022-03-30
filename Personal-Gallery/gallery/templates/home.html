@@ -15,37 +15,60 @@
 <body>
   <div class="container-fluid">
     {% include "navbar.html" %}
-
+    <h1>Personal Gallery</h1>
     <div class="row m-5">
       {% for image in images %}
       <div class="col-sm-3 m-5">
-
-        <h1>Personal Gallery 2</h1>
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap">
+          <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap" id="{{image.id}}"
+            data-toggle="modal" data-target="#myImg{{image.id}}">
+        </div>
+      </div>
 
-          <div class="card-body">
-            
-            <h5 class="card-title">Category: {{image.category.name}}</h5>
-            
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="{% url 'viewing' image.id %}" class="btn btn-primary">View Image</a>
+      {% endfor %}
+      {% for image in images %}
+      <div class="modal" id="myImg{{image.id}}" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="text-align:center;">
+          <div class="modal-header">
+            <h3 class="modal-title"><b>Category:
+                {{image.category.name}}</b></h3>
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="click to close details"><button
+                type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button></span>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <img class="card-img-top"
+               
+                src="{{ image.image.url }}" alt="Image" data-toggle="modal" data-target="#exampleModal{{image.id}}">
+              <div class="card-body">
+                <p>{{image.description}}</p>
+                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="copylink"><button type="button"
+                    name="button" class="container-fluid btn btn-secondary" value="{{ image.image.url }}"
+                    onclick="copylink(this.value)">Copy Image
+                    Link</button></span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-
       </div>
-      {%empty%}
-      <h2>No image yet ....</h2>
-      {% endfor %}
-
-
-      {% block scripts %}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      {% bootstrap_javascript %}
-      {% endblock %}
-
     </div>
+      {% endfor %}
+      
+
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
+
+  </div>
 </body>
 
 </html>
