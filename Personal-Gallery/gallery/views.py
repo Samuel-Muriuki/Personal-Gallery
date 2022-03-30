@@ -16,7 +16,11 @@ def home_gallery(request):
     else:
         images = Image.objects.filter(category__name=category)
 
-    
+    location = request.GET.get('location')
+    if category == None:
+        images = Image.objects.all()
+    else:
+        images = Image.objects.filter(location__name=location)
 
     return render(request, 'home.html', context)
 
