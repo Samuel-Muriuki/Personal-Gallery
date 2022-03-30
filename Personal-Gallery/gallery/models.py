@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -6,6 +7,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def search_by_category(cls, search_term):
+        category = cls.objects.filter(name__icontains=search_term)
+        return category
 
 
 class Location(models.Model):
