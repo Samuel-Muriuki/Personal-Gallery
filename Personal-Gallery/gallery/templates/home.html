@@ -15,101 +15,29 @@
 <body>
   <div class="container-fluid">
     {% include "navbar.html" %}
-    
+
     <div class="row m-5">
       <div class="col-sm-3 my-5">
+        {% for image in images %}
         <h1>Personal Gallery 2</h1>
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
+          <img class="card-img-top" src="{{ image.image.url }}" alt="Card image cap">
+          
           <div class="card-body">
             {% for category in categories %}
-              <h5 class="card-title">Category: {{category.name}}</h5>
+            <h5 class="card-title">Category: {{category.name}}</h5>
             {% endfor %}
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
               content.</p>
-            <a href="{% url 'viewing' 3 %}" class="btn btn-primary">View Image</a>
+            <a href="{% url 'viewing' 1 %}" class="btn btn-primary">View Image</a>
           </div>
         </div>
+        {%empty%}
+          <h2>No image yet ....</h2>
+          {% endfor %}
       </div>
 
-      <div class="col-sm-3 my-5">
-        <h1>Personal Gallery 2</h1>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3 my-5">
-        <h1>Personal Gallery 2</h1>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3 my-5">
-        <h1>Personal Gallery 2</h1>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3 my-5">
-        <h1>Personal Gallery 2</h1>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3 my-5">
-        <h1>Personal Gallery 2</h1>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+     
 
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
