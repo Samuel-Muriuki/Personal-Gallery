@@ -10,8 +10,8 @@ def home_gallery(request):
     context = {'categories': categories, 'images': images}
     return render(request, 'home.html', context)
 
-def adding_photos(request):
-    return render(request, 'gallery/adding_photos.html')
+def searching_photos(request):
+    return render(request, 'gallery/searching_photos.html')
 
 def viewing_photos(request, pk):
     image = Image.objects.get(id=pk)
