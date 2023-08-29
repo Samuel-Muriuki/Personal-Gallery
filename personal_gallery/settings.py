@@ -17,7 +17,9 @@ import dj_database_url
 from decouple import config,Csv
 import cloudinary.uploader
 import cloudinary.api
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -167,3 +169,6 @@ cloudinary.config(
   api_key = "848147126193755", 
   api_secret = "WFNaFUhR3HlSX1WUqdPrFRC13ns" 
 )
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
