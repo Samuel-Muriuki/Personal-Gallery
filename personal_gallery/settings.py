@@ -95,11 +95,17 @@ if config('MODE')=="dev":
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': config('DB_NAME'),
-           'USER': config('DB_USER'),
-           'PASSWORD': config('DB_PASSWORD'),
-           'HOST': config('DB_HOST'),
-           'PORT': '',
+            'URL': os.getenv('POSTGRES_URL'),
+            'NAME': os.getenv('PGNAME'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            'HOST': os.getenv('POSTGRES_HOST'),
+            # 'PORT': os.getenv('PGPORT'),
+            # 'NAME': config('DB_NAME'),
+            # 'USER': config('DB_USER'),
+            # 'PASSWORD': config('DB_PASSWORD'),
+            # 'HOST': config('DB_HOST'),
+            'PORT': '',
        }
        
    }
